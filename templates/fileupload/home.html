@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block css%} {% endblock %}
+    <link rel="stylesheet" href=" {% static '/css/fileupload/home3.css' %}" />
+    
+    <title>Mobilecomm</title>
+
+   
+  </head>
+
+  <body>
+   
+      <div class="content">
+        <div id="logo">
+          <img id="icon"
+            src="{% static '/icons/header_icon2.jpg' %}"
+            alt="Mobilecomm"
+            width="160px"
+            height="75px"
+            class="headerimg"
+          />
+        </div>
+        <h1 id="p1">Mobilecomm Technologies</h1>
+        <div class="lginout" id="lginout">
+          {% if user.is_authenticated %}
+
+          <ul class="header_user_name">
+              <li><p id="name">{{request.session.uname}}</p></li>
+            <li>
+              <a href="/acounts/logout/"
+                ><button class="lgout">logout</button></a
+              >
+            </li>
+          </ul>
+          {% else %}
+          <ul class="header_user_name">
+            <li>
+              <a href="/acounts/login/"><button class="lgin">login</button></a>
+            </li>
+            <li>
+              <a href="/acounts/register/"
+                ><button class="reg">register</button></a
+              >
+            </li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+      <div class="navbar">
+        <ul>
+          <li><a   class="btn active" href="/">Home</a></li>
+          <li><a   class=" btn" href="/acounts/contactus/">Contact</a></li>
+          <li><a    class=" btn" href="/acounts/about/">About</a></li>
+          <li><a   class=" btn" href="/upload/upload_image/">Upload file</a></li>
+          <li><a   class=" btn" href="/upload/image_list/">view list</a></li>
+          <li><a   class=" btn" href="/upload/mylist/">my list</a></li>
+        </ul>
+      </div>
+      
+    </div>
+    <div class="body">
+    {% block content %}
+    <div style="width:60%; margin:auto;display:block; margin-top: 7%;">
+    <h1 style="color:wheat;text-align: center;"><span>Wellcome to</span> <span style="color:rgb(221, 161, 48);"> mobile</span>comm <span> Home page everyone</span></h1>
+    <h2 style="color:red; text-align: center;"> SUPPORTS 5G TECHNOLOGY </h2>
+    <h2 style="color:red; text-align: center;"> SUPPORTS 4G TECHNOLOGY </h2>
+    <h2 style="color:red; text-align: center;">SUPPORTS 2G TECHNOLOGY </h2>
+    <h2 style="color:red; text-align: center;">SUPPORTS VIRTUAL  RAN  TECHNOLOGY</h2>
+  </div>
+    {% endblock %}
+   </div>
+   <script>
+    var btnContainer = document.getElementsById("navbar");
+    var btns = btnContainer.getElementsByClassName("btn");
+  for(var i =0; i<btns.length; i++ ){
+  btns[i].addEventListener('click', function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace("active");
+  this.className+='active';
+  })
+  }
+  </script>
+
+  </body>
+
+  
+</html>

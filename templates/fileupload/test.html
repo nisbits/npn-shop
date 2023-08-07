@@ -1,0 +1,18 @@
+{% extends "home.html" %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/test.css' %}">
+ {% endblock %}
+
+ {% block content %}
+ <div class="demo-wrap">
+    <img
+      class="demo-bg"
+      src="https://assets.digitalocean.com/labs/images/community_bg.png"
+      alt=""
+    />
+    <div class="demo-content">
+      <h1>Hello World!</h1>
+    </div>
+  </div>
+{% endblock %}

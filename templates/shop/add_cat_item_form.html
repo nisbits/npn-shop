@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title%}Add category item{% endblock title%}
+{% block css %} <link rel="stylesheet" href="{% static 'css/shop/add_cat_item_form.css' %}" />  {% endblock css%}
+{% block content%}
+<div id="form_body">
+<form method = "post" enctype = "multipart/form-data" id="form" >
+   <h2 style="text-align:center;">ADD ITEM</h2>
+   {% csrf_token %}
+    
+    {{ form }}
+    <br>
+    <div id="frm_btns">
+   <button type="submit" class="btn" id="add">+ADD</button>
+   <a href="{% url 'cat_list' %}"> <button  type="button" id="cancel" class="btn">cancel</button >
+   </div>  
+</form>
+
+   </div>
+
+    {% endblock content%}
+    <a href="{{http}}">+Add</a> 

@@ -1,0 +1,90 @@
+{% extends 'shop/base.html'%}
+{% load static %}
+{% block css%}<link rel="stylesheet" href="{% static 'css/shop/view_cat_wise_item2.css' %}" /> {% endblock %}
+{% block title %} catagory:{{c_head}} {% endblock title %}
+
+  {% block content %}
+ 
+ <div id="body_content">
+  <div id="bck_add_btn">    
+    
+    <a href="{%  url 'cat_list' %}"  ><button type="submit" class="btn"  id="back_button">Back</button></a>
+    <div id="search-box">
+      <form class="form">
+        {% csrf_token %}
+      <input
+          type="text"
+          placeholder="Search"
+          name="search"
+          id="user"
+          required
+        />
+      <input type="Submit" value="Search" id="search-button" class="btn" />
+      </form>
+
+  
+    <a href="{% url 'add_cat_item' pk %}">  <button type = " submit " id='add_products' class="btn" >+Add Products</button ></a>
+    </div>
+  </div>
+  <div id="cat_wise_item_table">
+    <table class = "table" id="table" >
+        <thead>
+          <tr>
+            <th style="width:5%">S/NO.</th>
+            <th >Image</th >
+            <th >Item Name<a href="?short=item_name" style="text-decoration:none;"> <span> &#8593; </span> </a> <a href="?short=-item_name" style="text-decoration:none;"> <span> &#8595;</span> </a></th >
+                <th >Short Discription<a href="?short=short_discription" style="text-decoration:none;"> <span> &#8593; </span> </a> <a href="?short=-short_discription" style="text-decoration:none;"> <span> &#8595;</span> </a></th>
+                    <th >Published Dates</th>
+                       
+                            <!-- <th ><h2>Specs</h2></th> -->
+          
+          
+          
+              <th > Actions</th >
+          </tr >
+        </thead > 
+        <tbody>
+          {% for item in object %}
+            <tr >
+            <td>{{forloop.counter}}</td>
+            <td ><img src="{{ item.image.url }}" width=100px height=100px></td >
+             <td > {{ item.item_name}}</td >
+                <td > {{ item.short_discription}}</td >
+                    <td > {{ item.upload_date}}</td >
+                       
+                            <!-- <td > {{ item.specs}}</td >
+              -->
+             
+             <td>
+            
+              <span style="display: inline-block;">
+                <a href="{% url 'single_item_view' item.pk %}">  <button type = " submit "  class="btn" id="view" >View</button ></a>
+               </span>
+              
+               {% if perms.shop.change_catlist %}
+            <span style="display: inline-block;">
+               <a href="#">  <button type = " submit "  class="btn" id="edit" >Edit</button ></a>
+              </span>
+              {% endif %}
+
+              {% if perms.shop.change_catlist %}
+              <span style="display: inline-block;"> 
+                <form method = "post" action = "{% url 'deactivate_cat_wise_item' item.pk %}">
+                 {%csrf_token %}
+                 <button type = " submit " id='deactivate' class="btn"> Deactivate </button>
+                 </form >
+              </span>
+              {% endif %}
+              </td>
+          <!--    <td > <a href="#" id="dellink">Delete</a> <a href="#" id="uplink">Update</a></td > -->
+          {% endfor %}
+        </tbody >
+      </table >
+
+</div>
+</div>
+
+{% endblock content %}
+
+
+

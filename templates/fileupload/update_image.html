@@ -1,0 +1,16 @@
+{% extends "fileupload/home.html" %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/update.css' %}">
+ {% endblock %}
+
+ {% block content %}
+ <div id="reg_bg_img">
+ <div id="reg" >
+ <form method = "post" enctype = "multipart/form-data"  >
+    {% csrf_token %}
+    {{ form }}
+   <button type = "submit" >update</button >
+   </div>
+</div>
+{% endblock %}

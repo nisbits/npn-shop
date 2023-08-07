@@ -1,0 +1,60 @@
+{% extends 'shop/base.html'%}
+{% load static %}
+{% block title %}Category list{% endblock title %}
+{% block css%}<link rel="stylesheet" href="{% static 'css/shop/cat_list.css' %}" /> {% endblock %}
+
+
+  {% block content %}
+
+  <div id="body_content">
+  <div id="add_cat_bt"><a href="{%  url 'add_cat' %}" ><button type="submit" class="btn" >+Add Category</button></a></div>
+  <div id="cat_table" >
+    <table class = "table" id="table" >
+        <thead>
+          <tr>
+            <th style="width: 5%;" ><h3>S/NO.</h3></th >
+            <th ><h3>CATEGORY NAME</h3></th >
+            <th ><h3>ACTION</h3> </th >
+          </tr >
+        </thead > 
+        <tbody>
+          {% for cat in objects %}
+            <tr>
+            <td> {{forloop.counter}}</td>
+             <td style="font-size:20px ">{{ cat.category_name}}</td >
+             
+             
+            <td>
+              
+               <span style="display: inline-block;"> 
+                <a href="{% url 'view_cat_wise_list' cat.pk %}">  <button  type = " submit " id='view' class="btn" >View</button ></a>
+               </span>
+             {% if perms.shop.change_catlist %}
+              <span style="display: inline-block;">
+               <a href="#">  <button type = " submit " id='edit' class="btn" >Edit</button ></a>
+              </span>
+              {% endif %}
+              {% if perms.shop.change_catlist %}
+              <span style="display: inline-block;"> 
+                 <form method = "post" action = "{% url 'deactivate_cat_list' cat.pk %}">
+                 {%csrf_token %}
+                 <button type = " submit " id='deactivate' class="btn" > Deactivate </button>
+                 </form >
+              </span>
+              {% endif %}
+              </td>
+          <!--    <td > <a href="#" id="dellink">Delete</a> <a href="#" id="uplink">Update</a></td > -->
+          {% endfor %}
+        </tbody >
+      </table >
+
+</div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+

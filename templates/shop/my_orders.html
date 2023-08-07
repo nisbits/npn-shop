@@ -1,0 +1,55 @@
+{% extends 'shop/base.html'%}
+{% load static %}
+{% block title %}Category list{% endblock title %}
+{% block css%}<link rel="stylesheet" href="{% static 'css/shop/myorders.css' %}" /> {% endblock %}
+
+
+  {% block content %}
+  <div id="body_content" style="margin-top: 40px;">
+    <h2 style="text-align:center;">My Orders</h2>
+    {% if orders %}
+   <table class = "table" id="table" >
+        <thead>
+          <tr>
+            <th style="width: 5%;" ><h3>S/NO.</h3></th >
+            <th ><h3>image</h3></th >
+            <th ><h3>Item</h3> </th >
+            <th ><h3>Price</h3> </th >
+            <th ><h3>Order Date</h3> </th >
+            <th ><h3>Payment Mod</h3> </th >
+            <th ><h3>Order Status</h3> </th >
+            
+          </tr >
+        </thead > 
+        <tbody>
+          {% for item in orders %}
+            <tr>
+            <td> {{forloop.counter}}</td>
+             <td style="font-size:20px "><img src="{{ item.product.image.url }}" width="100" height="100"></td >
+                <td style="font-size:20px ">{{ item.product.item_name}}</td >
+                    <td style="font-size:20px ">INR.{{ item.product.price}}</td >
+                        <td style="font-size:20px ">{{ item.order_date}}</td >
+                        <td style="font-size:20px ">{{ item.payment_method}}</td >
+                        <td style="font-size:20px ">{{ item.order_status}}</td >
+          </tr>
+         
+          <!--    <td > <a href="#" id="dellink">Delete</a> <a href="#" id="uplink">Update</a></td > -->
+          {% endfor %}
+        </tbody >
+      </table >
+      
+     
+
+      {% else %}
+      <div style="text-align: center;"><h4> NO Orders</h4></div>
+      {% endif %}
+</div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+

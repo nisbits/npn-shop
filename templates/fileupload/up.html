@@ -1,0 +1,14 @@
+{% extends "form.html" %}
+
+{% block content %}
+    <h1>upload</h1>
+    <form method="post" action="/upload/up/" enctype="multipart/form-data">
+     {% csrf_token %}
+     <input type="file" name="file">
+     <input type="text" name="fn">
+     <button type="submit">upload file</button>
+    </form>
+    {% if url %}
+       <p>Download Output file:<a href="{{url}}">{{url}}</p>
+    {%  endif %}
+{% endblock %}

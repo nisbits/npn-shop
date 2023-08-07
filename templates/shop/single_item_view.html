@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %} {% load static %} {% block css%}
+<link rel="stylesheet" href="{% static 'css/shop/single_item_view.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<div class="super">
+<div class="image"><img   width="500" height="500" src="{{object.image.url}}"/></div>
+<div class="all-details">
+  
+<div class="item-name" style="text-transform: capitalize;"><h2>{{object.item_name}}</h2>    </div><hr>
+<div class="item-name"> <h3>Published Date :</h3> <p>{{object.upload_date}}</p>    </div><hr>
+<div class="item-name"> <h3>Price :</h3> <p>INR.{{object.price}}</p>    </div><hr>
+<div class="item-name"> <h3>Short Discription :</h3> <p>{{object.short_discription}}</p>    </div><hr>
+<div class="item-name"> <h3>Long Discription:</h3>  <p>{{object.long_discription}}</p>    </div><hr>
+<div class="item-name"> <h3>Specification: </h3>  <p>{{object.specs}}</p>    </div><hr>
+<div style="text-align: center;"> <a  href="{% url 'add_to_cart' object.id %}" id="atc" class="btn">Add to Cart</a> <a href="{% url 'checkout_single_item' object.id %}"  id="bn" class="btn">Buy Now</a></div>
+</div>
+
+</div>
+
+
+{% endblock %}

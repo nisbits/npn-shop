@@ -1,0 +1,18 @@
+.about{
+
+    width:80%;
+    margin: auto;
+   
+    color: aliceblue;
+    background-color: rgba(0,0,0,0.45);
+    padding-left: 37px;
+    padding-right: 37px;
+    border-radius: 14px;
+}
+
+.about p{
+  
+    font-family: 'Monospace';
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+}

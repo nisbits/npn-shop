@@ -1,0 +1,225 @@
+.header{ padding: 0px;
+    width: 100%;
+
+   
+}
+
+ body{
+    margin: 0px;
+    /* width: 100vw;
+    height: 100vh; */
+    
+ 
+
+    
+} 
+
+
+
+.content{
+  
+    overflow: hidden;
+display: flex;
+ background-color:rgb(0 154 255 / 50%);;
+}
+
+
+#logo{
+    box-sizing: border-box;
+    margin-left: 0px;
+    display: inline-block;
+    width: 20%;
+    position: relative;
+
+}
+
+#logo img{
+    margin-left: 33px;
+    width: 80px;
+    margin-top: 5px;
+    height: 70px;
+}
+
+
+
+.navbar{ height: 40px;
+    width: 100%;
+    border-color: black;
+    border-width: 10px;
+    background-color: bisque;
+    background-color: rgb(12, 12, 12);
+    
+    border-radius: 0px;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#p1 {
+    margin-left: 0px;
+    color:rgb(255 224 0);
+    box-sizing: border-box;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    text-shadow: -2px 7px 5px #5a0505;
+    font-weight: bolder;
+
+}
+button{
+    padding:6px;
+    
+}
+
+#nav-btn li{
+    display: inline;
+  
+}
+
+ #nav-btn ul{
+     margin-top: auto;
+    padding: 10px;
+    margin-bottom: 0px;
+    padding-top: 11px;
+}
+
+#nav-btn a{
+
+    color: whitesmoke;
+    text-decoration: none;
+    display: inline;
+    padding: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.navbar .btn1:hover {
+    background-color: rgb(95, 88, 88);
+  }
+
+button.lgin{
+
+    padding: 4px 12px;
+}
+
+button.reg{
+    padding: 3px 6px;
+}
+button.lgout{
+
+    padding: 4px 12px;
+}
+
+#name{
+    display: inline;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    font-family: cursive;
+    font-size: large;
+    padding-right: 31px;
+
+}
+
+
+
+
+.header_user_name {
+    margin: 0px
+    
+}
+.header_user_name li{
+    display: inline;
+}
+.lginout ul{
+       margin-top: 0px;
+       float: right;
+       margin-right: 0px;
+       padding-left: 4px;
+}
+
+
+.active {
+    
+        border: 1px solid whitesmoke;
+        
+}
+
+#bck_add_btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-btn{padding-left: 0px;}
+
+.lgin{
+    margin-right: 25px;
+}
+
+.reg{
+    margin-right: 25px;
+}
+
+.lgout{
+    margin-right: 25px;
+}
+
+/* .body::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("site_bg_img5.jpg");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover;
+    opacity: 0.95;
+    top: 0;
+    left: 0;
+    filter: blur(4px);
+    -webkit-filter: blur(1.5px);
+    z-index: -2;} */
+
+.ac{
+
+    text-decoration:none; 
+    color:black;
+}
+#pro_image{display: inline-block;
+   margin-right:4px;
+   cursor: pointer; 
+height: 30px;
+width: 30px;}
+#pro_image img {border-radius: 50%;}
+
+.menu{
+    position: absolute;
+    border: 1px solid black;
+    background-color: aliceblue;
+    top: 45px;
+    display: none;
+    width: 150px;
+    border-radius: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-shadow: -4px 4px 6px grey;
+
+}
+.menu a{ text-decoration: none;
+
+}
+
+.active{
+    display: block;
+}
+
+.menu ul{
+    list-style-type: none;
+    float: none;
+    display: block;
+    width: 77%;
+    margin: auto;
+    padding: 0px;
+}

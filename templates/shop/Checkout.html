@@ -1,0 +1,110 @@
+{% extends 'shop/base.html'%}
+{% load static %}
+{% block title %}Category list{% endblock title %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/shop/checkout.css' %}" /> {% endblock %}
+
+
+{% block content %}
+<h2 style="text-align:center; ">Checkout</h2>
+<div id="body_content" style="margin-top: 40px;display: flex;justify-content: space-between;">
+
+  <div class="checkout-details" style="height:100%;width:50%;">
+    <div class="shipping-address" style="border:1px solid black; margin :5px; padding: 5px">
+      <h3 style="margin: 0px;">Shipping Address</h3>
+      <pre>
+    Nishant verma,
+    house no. 163
+    sector 22,
+    Gurugram,Haryana 
+      </pre>
+      <a href="#">Change address</a>
+    </div>
+    <div class="payment-method" style="border:1px solid black; margin: 5px;  padding: 5px">
+      <form >
+        <h3 style="margin: 0px;">Payment Method</h3>
+        <input type="radio" id="html" name="method" value="card">
+        <label for="html">Card</label><br>
+        <input type="radio" id="css" name="method" value="netbanking">
+        <label for="css">Netbanking</label><br>
+        <input type="radio" id="javascript" name="method" value="wallet">
+        <label for="javascript">Wallet</label><br>
+        <input type="radio" id="cod" name="method" value="emi">
+        <label for="cod">Emi</label>
+      </form>
+    </div>
+  </div>
+  <div class="order-summery">
+    <h3 style="text-align: center; margin-top:0px ;">Order Summery</h3>
+    <table class="table" id="table">
+      <thead>
+        <tr>
+          <th style="width: 5%;">
+            S/NO.
+          </th>
+          <th>
+            image
+          </th>
+          <th>
+            Item
+          </th>
+          <th>
+            Price
+          </th>
+        </tr>
+      </thead>
+
+      {% if cartitems %}
+      {% for item in cartitems %}
+      <tbody>
+        <tr>
+          <td> {{forloop.counter}}</td>
+          <td style="font-size:15px ;text-align: center; "><img src="{{ item.product.image.url }}" width="40"
+              height="40"></td>
+          <td style="font-size:15px; text-align: center; ">{{ item.product.item_name}}</td>
+          <td style="font-size:15px ;text-align: center; ">INR.{{ item.product.price}}</td>
+        </tr>
+
+
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="total">
+      <div style="display:flex;flex-direction:row-reverse;"><span id="total">Total: INR.{{total}}</span></div>
+      <div id=payment><a href="{% url 'place_order' %}" id="pay" class="btn">Pay and Place Order</a></div>
+    </div>
+
+
+    {% endif %}
+
+    {% if product %}
+    <tbody>
+      <td> 1</td>
+      <td style="font-size:15px; text-align: center; "><img src="{{ product.image.url }}" width="40" height="40"></td>
+      <td style="font-size:15px; text-align: center; ">{{ product.item_name}}</td>
+      <td style="font-size:15px; text-align: center; ">INR.{{ product.price}}</td>
+      </tr>
+    </tbody>
+    </table>
+    <tr>
+      <div class="total">
+        <div style="display:flex;flex-direction:row-reverse;"><span id="total">Total: INR.{{total}}</span></div>
+        <div id="payment"><a href="{% url 'single_place_order' product.pk %}" id="pay" class="btn">Pay and Place
+            Oder</a></div>
+      </div>
+    </tr>
+
+    {% endif %}
+
+
+
+  </div>
+
+</div>
+{% for message in messages %}
+<div style="text-align:center;">{{message}}</div>
+{% endfor %}
+
+
+
+{% endblock content %}

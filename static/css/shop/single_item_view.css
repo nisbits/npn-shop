@@ -1,0 +1,48 @@
+.super{
+    width:80%;
+    margin: auto;
+    display: flex;
+    
+}
+
+.image{
+ padding: 27px;
+} 
+
+.all-details{
+    width: 100%;
+}
+
+.all-details p {overflow-wrap: anywhere;}
+
+
+.btn{
+
+   
+    border: none;
+    
+    padding: 3px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:5px;
+   
+    font-weight: 700;
+    padding-top:7px;
+    padding-bottom: 7px;
+}
+
+#atc {   
+    margin-bottom: 4px;
+    background-color: #199581db;
+    color: white;
+    border:1px solid #0a5e5a;}
+
+#bn {   
+    margin-bottom: 4px;
+    background-color: #c5bf00db;
+    color: white;
+    border:1px solid #758000;}

@@ -1,0 +1,27 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'css/shop/profile_change.css' %}">
+ {% endblock %}
+
+ {% block content %}
+ <div id="form_body">
+ <form method = "post" enctype = "multipart/form-data" id="form" >
+    <h2 style="text-align:center;"> Change Password</h2>
+     {% csrf_token %}
+     {{ form }}
+     <br>
+     {% for message in messages %}
+     
+        <h3 class="message" style="text-align:center;">{{message}}</h3>
+       
+     {% endfor %}
+   <div id="frm_btns"> <button type = "submit" class="btn" id="add">Save</button>
+     <!-- <a href="{% url 'cat_list' %}"> <button id="cancel" class="btn" type="button">Cancel</button > -->
+     </div>
+    </form>
+
+    </div>
+
+{% endblock %}
+

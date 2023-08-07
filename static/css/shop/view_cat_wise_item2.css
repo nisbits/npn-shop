@@ -1,0 +1,118 @@
+
+#body_content{
+    width:80%;
+    margin: auto;
+}
+
+
+#table{
+    width:100%;
+    margin:auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+     
+}
+
+#table th,td{
+    text-align: center;
+}
+#table  table, th, td {
+    border: 1px solid;
+  }
+
+ #table th{
+    height: 31px;
+    background-color: rgb(190, 224, 213);
+  }
+
+#table tr:hover{
+    background-color: rgb(232, 236, 235);
+}
+
+
+.btn{
+
+   
+    border: none;
+    
+    padding: 3px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:5px;
+   
+    font-weight: 700;
+    padding-top:7px;
+    padding-bottom: 7px;
+}
+#back_button{
+
+    color: white; 
+    background-color:#199581db;
+}
+
+#add_products{
+
+    color: white; 
+    background-color:#199581db;
+}
+#deactivate{
+    color: white;
+    background-color:#e62d2ddb;
+   
+    border:1px solid red;}
+
+#edit{
+        color: white;
+        background-color:#1e7ab7db;}
+
+
+ tbody tr{
+            background-color:#e6f6ff;
+           
+           
+        }
+tbody td{
+    overflow-wrap: anywhere;
+}
+
+
+#user{
+    height: 27px;
+    width: 268px;
+    padding: 1px 16px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+#search-button{
+    background-color: white;
+    margin-left: 4px;
+    border-radius: 6px;
+   
+    color: white; 
+    background-color:#199581db;
+}
+
+
+#bck_add_btn{
+
+    margin-top: 30px;
+    margin-bottom: 1px;
+}
+
+#view{
+    color: white;
+    background-color: #4CAF50;
+}
+
+.form{
+    display : inline-block;
+}
+
+.search-box a{
+    display: inline-block;
+}

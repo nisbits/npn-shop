@@ -1,0 +1,49 @@
+{% extends "fileupload/home.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/mylist.css">
+{% endblock %}
+{% block content %}
+<!--<div class="updateform"  id="updateform" >
+  lalalalal alalalal uulalala  dmdmdm
+ </div>-->
+<div class="view_list">
+  <h2 id="lis_heading"> my list</h2>
+<table class = " table " id="list_table" >
+  <thead>
+    <tr >
+      <th > Image name</th >
+      <th > upload Date</th >
+        <th > Uploaded BY</th >
+      <th > Download </th >
+        <th > Actions </th >
+    </tr >
+  </thead > 
+  <tbody>
+    {% for image in objects %}
+      <tr >
+       <td > {{ image.image_name}}</td >
+        <td > {{ image.upload_date}}</td >
+          <td > {{ image.user}}</td >
+       <td > <a href="{{ image.image.url }}" id="dnlink">Download</a></td >
+       <td><span style="display: inline-block;"> 
+           <form method = "post" action = "{% url 'delete' image.pk %}">
+            {%csrf_token %}
+            <button type = " submit " id='dellink' >Delete</button >
+            </form >
+      </span>
+        <span style="display: inline-block;">
+       <a href="{% url 'edit' image.pk  %}">
+          <button type = " submit " id='uplink'>Edit</button ></a>
+         
+    </span>
+        </td>
+    <!--    <td > <a href="#" id="dellink">Delete</a> <a href="#" id="uplink">Update</a></td > -->
+    {% endfor %}
+  </tbody >
+</table >
+
+
+<script src="/static/js/update_img.js"></script>
+{% endblock content %}

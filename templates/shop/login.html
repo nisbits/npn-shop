@@ -1,0 +1,53 @@
+{% extends "shop/base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/shop/login1.css' %}" />
+{% endblock %} {% block content %}
+
+<div id="reg_bg_img">
+  <div id="reg">
+    <h1 class="title" id="title">Login</h1>
+    <form class="form" method="post" action="/shop_accounts/login/">
+      {% csrf_token %}
+
+      <label for="user">Username:</label>
+      <input
+        type="text"
+        placeholder="username"
+        name="username"
+        id="user"
+        required
+      /><br /><br />
+
+      <label for="pass">Password:</label>
+      <input type="hidden" name="next" value="{{ request.GET.next }}" />
+      <input
+        type="password"
+        placeholder="password"
+        name="password"
+        id="pass"
+      /><br /><br />
+      <input type="Submit" value="login" />
+    </form>
+  </div>
+  <div class="message_show">
+    {% for message in messages %}
+
+    <h3 class="message">{{message}}</h3>
+
+    {% endfor %}
+    <div class="reg_link">
+      <p style=" text-align: center">
+        New to Mobilecomm?<a href="/acounts/register/" 
+          >Register Now</a
+        >
+      </p>
+      <p style=" text-align: center">
+       <a href="{% url 'pass_reset' %}" 
+          >Forget Password</a
+        >
+      </p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

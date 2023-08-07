@@ -1,0 +1,32 @@
+{% extends "fileupload/home.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/table_style1.css">
+{% endblock %}
+{% block content %}
+<div class="view_list">
+  <h2 id="lis_heading"> images</h2>
+<table class = " table " id='list_table'>
+  <thead>
+    <tr >
+      <th > Image name</th >
+      <th > upload Date</th >
+        <th > Uploaded BY</th >
+      <th > Download </th >
+    </tr >
+  </thead > 
+  <tbody>
+    {% for image in objects %}
+      <tr >
+       <td > {{ image.image_name}}</td >
+        <td > {{ image.upload_date}}</td >
+          <td > {{ image.user}}</td >
+       <td > <a  href="{{ image.image.url }}" id="dnlink">Download</a></td >
+      </tr >
+    {% endfor %}
+  </tbody >
+</table >
+
+</div>
+{% endblock %}
